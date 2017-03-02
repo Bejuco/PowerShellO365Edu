@@ -27,7 +27,7 @@ Connect-MsolService
 clear
 $licenses = Get-MsolAccountSku | Select-Object AccountSkuId
 $usrResults = @(); #array for the results 
-$ErrorsCreating = @(); #array for the errors found in the user's creation. 
+$ErrorsCreating = @(); #array for the errors found in the user's creation.
 #Here the CSV should be loaded. Using an In-Memory Array just to make things easier.
 $usersToCreate = ("Testupn@jpcortes.net", "Testupn1@jpcortes.net", "Testupn2@jpcortes.net","Testupn@jpcortes.net")
 $ErrorActionPreference = “SilentlyContinue”;
@@ -40,9 +40,10 @@ foreach( $newUser in $usersToCreate) {
 
         }
     else{
+      #you might want to change the Usage Location. Here is set to Costa Rica.
     Set-MsolUser -UserPrincipalName $newUser -UsageLocation CR;
     Set-MsolUserLicense -UserPrincipalName $newUser -AddLicenses $licenses[2].AccountSkuId;
-    #I'm explicitly selecting the third license available in my tenant. You can/should change at will. 
+    #I'm explicitly selecting the third license available in my tenant. You can/should change at will.
     $usrResults += ,$usr;
     }
 }
@@ -53,4 +54,4 @@ $usrResults | Select-Object UserPrincipalName, Password | Export-Csv -Path "c:/p
 $ErrorsCreating | Select-Object @{Name = "Users Not Created"; Expression= {$_}}| Export-Csv -Path "C:/ps/errors.csv" -Force -NoTypeInformation
 
 Write-Warning "Script ran with $($ErrorsCreating.Count) Errors"
-#This could be changed to just report IF there was errors and how many users were created. I just didn't. 
+#This could be changed to just report IF there was errors and how many users were created. I just didn't.
