@@ -53,6 +53,6 @@ Foreach ($us in $Users)
       $ErrorsDetected +=, $us;
     }
 } #Main for each closing
-
+$ErrorActionPreference = “Continue”
 $ErrorsDetected | Select-Object @{Name = "License Change Errors"; Expression= {$_}}| Export-Csv -Path "C:/ps/LicenseChangeErrors.csv" -Force -NoTypeInformation
 Write-Warning "Script ran with $($ErrorsDetected.Count) Errors"
