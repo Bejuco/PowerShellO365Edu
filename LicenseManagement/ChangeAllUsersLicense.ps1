@@ -38,7 +38,7 @@ $newLicense = $licenses[$LicenseIndex];
 
 $ErrorsDetected = @(); #array for the errors found in the user's creation.
 
-$Users = Get-MsolUser -MaxResults Unlimited;
+$Users = Get-MsolUser -All;
 $ErrorActionPreference = “SilentlyContinue”;
 
 Foreach ($us in $Users)
