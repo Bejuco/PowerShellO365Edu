@@ -8,7 +8,7 @@ base for your own Scripts.
 
 
 ### About me
-I'm JPCortesP, I work for Microsoft helping customers deploy O365 for Education
+I'm JPCortesP, I *used to* work for Microsoft helping customers deploy O365 for Education
 in LatinAmerica and the Caribbean. This means more than you initially think:
 - I can't provide you with support, more than the usual issues on GitHub.
 - This is not a Microsoft-Supported repo. This is a personal supported repo.
