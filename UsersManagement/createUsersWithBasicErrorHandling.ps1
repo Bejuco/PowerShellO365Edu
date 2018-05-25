@@ -1,7 +1,7 @@
 ################################################################################
 # MIT License
 #
-# Copyright (c) 2016 José P. Cortés
+# Copyright (c) 2016 Jos� P. Cort�s
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -47,7 +47,7 @@ foreach( $newUser in $usersToCreate) {
     $usrResults += ,$usr;
     }
 }
-$ErrorActionPreference = “Continue”
+$ErrorActionPreference = "Continue"
 #We get back to default error reporting preference
 #Log writing.... Will Overwrite.
 $usrResults | Select-Object UserPrincipalName, Password | Export-Csv -Path "c:/ps/output.csv" -Force -NoTypeInformation
