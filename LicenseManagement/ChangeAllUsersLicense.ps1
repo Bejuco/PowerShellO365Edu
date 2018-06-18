@@ -26,6 +26,7 @@
 # CHANGE Here
 $LicenseIndex = 1; #This is a base 0 index. It means that if you want the third, you'll use "2"
 #Use an integer, don't use " " or '', just the number.
+#Don't know which to use? run Get-MsolAccountSku
 ##############################################################################
 
 Connect-MsolService
@@ -38,6 +39,8 @@ $newLicense = $licenses[$LicenseIndex];
 
 $ErrorsDetected = @(); #array for the errors found in the user's creation.
 
+#Want to restrict users? use this line instead of the next:
+#$Users = Get-MsolUser -UserPrincipalName ""
 $Users = Get-MsolUser -All;
 $ErrorActionPreference = “SilentlyContinue”;
 
